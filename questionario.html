@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Formulario login e Registro com HTML5 e CSS3</title>
+    <meta name="viewport" content="width=device-width, initial-sacele=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo.css"/>
+<script language="javascript" type="text/javascript">
+    function validar(){
+        var nome_cadastro= formCadastro.nome_cad.value;
+    
+    if (nome_cadastro =="") {
+        alert('Preencha o campo com seu nome!');
+        formCadastro.nome_cad.focus();
+        return false;
+    }
+}
+</script>
+<!--onclick="return validar()" incluir no submit-->
+
+<script language="javascript" type="text/javascript">
+    function validarCadastro(){
+        var nome_cadastro= formCadastro.nome_cad.value;
+        var email_cadastro= formCadastro.email_cad.value;
+        var senha_cadastro= formCadastro.senha_cad.value;
+
+        if(nome_cadastro == ""){
+            alert('Preencha o campo com seu nome');
+            formCadastro.nome_cad.focus();
+            return false;
+        }
+        else if (email_cadastro ==""){
+            alert ('Preencha o campo com seu email');
+            formCadastro.email_cad.focus();
+            return false;
+        }
+        else if(senha_cadastro =="" || senha_cadastro.length <6){
+            alert ('Preencha o campo com sua senha! (mínimo de 6 e máximo de 8 caracteres)');
+            formCadastro.senha_cad.focus();
+            return false;
+        }
+        else{
+            alert ('USUÁRIO CADASTRADO COM SUCESO! \n O e-maildo cadastro' +
+            email_cadastro + 'terá que ser avaliado! \n Favor confirmar o cadastro no seu e-mail!');
+        }
+        
+    }
+    function validarLogin(){
+        var email_login= formLogin.email_login.value;
+        var senha_login= formLogin.senha_login.value;
+
+        if (email_login==""){
+            alert ('Preencha o campo com seu email para logar!');
+            formLogin.email_login.focus();
+            return false;
+        }
+        if (senha_login==""){
+            alert ('Preencha o campo com sua senha para logar!');
+            formLogin.senha_login.focus();
+            return false;
+        }
+
+        if(senha_login=="" || senha_login.length<6){
+            alert ('Preencha o campo com sua senha para logar! (mínimo de 6 e máximo de 8 caracteres)');
+            formLogin.senha_login.focus();
+            return false;
+    }
+}
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+    <a class="links" id="paracadastro"></a>
+    <a class="links" id="paralogin"></a>
+    <div class="content">
+        
+        <!--FORMULARIO DE LOGIN-->
+        <div id="login">
+            <form name="formLogin" method="post" action="">
+                <h1>Login</h1>
+
+                <p>
+                  <label for="email_login">seu e-mail</label>
+                  <input id="email_login" name="email_login" required="required"
+                  type="text" placeholder="ex:contato@projecao.br"/>
+                </p>
+                <p>
+                  <label for="senha_login">sua senha</label>
+                  <input id="senha_login" name="senha_login" required="required"
+                  maxlength="8" type="password" placeholder="ex:senha"/>
+                </p>
+                <p>
+                    <input type="checkbox" name="manterlogado" id="manterlogado" value=""/>
+                    <label for="manterlogado">Manter-me Logado</label>
+                </p>
+                <p>
+                    <input type="submit" value="Logar"
+                    onclick="return validarLogin()"/>
+                </p>
+                <p class="link">
+                 Ainda não tem conta?
+                 <a href="#paracadastro">Cadastre-se</a>
+                </p>
+            </form>
+        </div>
+        <!--FORMULARIO PARA CADASTRO-->
+        <div id="cadastro">
+            <form name="formCadastro" method="post" action="">
+                <h1>Cadastro</h1>
+                <p>
+                    <label for="nome_cad">Seu nome</label>
+                    <input id="nome_cad" name="nome_cad" required="required"
+                    type="text" placeholder="nome"/>
+                </p>
+                <p>
+                    <label for="email_cad">Seu email</label>
+                    <input id="email_cad" name="email_cad" required="required"
+                    type="email" placeholder="ex.contato@projecaolandia.com"/>
+                </p>
+                <p>
+                    <label for="senha_cad">Sua senha</label>
+                    <input id="senha_cad" name="senha_cad" required="required"
+                    maxlength="8" type="password" placeholder="ex.1234"/>
+                </p>
+                <p>
+                    <input type="submit" value="Cadastrar" onclick="return validar()"/>
+                </p>
+                <p class="link">
+                    Já tem conta?
+                    <a href="#paralogin">Ir para login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
