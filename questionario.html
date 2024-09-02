@@ -53,17 +53,15 @@
             formLogin.email_login.focus();
             return false;
         }
-        if (senha_login==""){
-            alert ('Preencha o campo com sua senha para logar!');
-            formLogin.senha_login.focus();
-            return false;
-        }
 
         if(senha_login=="" || senha_login.length<6){
             alert ('Preencha o campo com sua senha para logar! (mínimo de 6 e máximo de 8 caracteres)');
             formLogin.senha_login.focus();
             return false;
     }
+        else{
+        alert('Bem vindo ao Sistema'+email_login);
+        }
 }
     </script>
 
